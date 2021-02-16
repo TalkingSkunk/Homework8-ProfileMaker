@@ -13,9 +13,8 @@ https://github.com/TalkingSkunk/Homework8-ProfileMaker
 * [Badges](#badges)
 * [License](#license)
 * [Description](#description)
-* [Features](#features)
 * [Installation](#installation)
-* [Usage](#usage)
+* [Features](#features)
 * [Credits](#credits)
 * [Contributing](#contributing)
 * [Tests](#tests)
@@ -82,6 +81,7 @@ SOFTWARE.
 * All goals are met.
 
 
+
 ## Installation
 
 * You need to install nodejs to your local computer.
@@ -90,6 +90,7 @@ SOFTWARE.
     2. ``` npm install inquirer ```
     3. ``` npm install path ```
 * Run ``` node index.js ``` on your command line, and follow the prompts.
+
 
 
 ## Features
