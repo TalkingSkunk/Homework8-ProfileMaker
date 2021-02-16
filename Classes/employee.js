@@ -4,10 +4,10 @@ class Employee {
         this.id = id;
         this.email = email;
     }
-    getName() { };
-    getId() { };
-    getEmail() { };
-    getRole() { return this.constructor.name; };
+    getName() { return this.name };
+    getId() { return this.id };
+    getEmail() { return this.email };
+    getRole() { return this.constructor.name };
 }
 
 module.exports = { Employee };

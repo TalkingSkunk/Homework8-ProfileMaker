@@ -58,7 +58,7 @@ const renderIntern = intern => {
 
 // insert the finished cards into the final.html
 const renderMain = html => {
-  const template = fs.readFileSync(path.resolve(templatesDir, "main.html"), "utf8");
+  const template = fs.readFileSync(path.resolve(templatesDir, "final.html"), "utf8");
   return replacePlaceholders(template, "team", html);
 };
 

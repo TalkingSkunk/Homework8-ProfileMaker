@@ -1,6 +1,7 @@
 const manager = require("./Classes/manager.js");
 const engineer = require("./Classes/engineer.js");
 const intern = require("./Classes/intern.js");
+const render = require("./Classes/toFinalHTML.js");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -8,13 +9,13 @@ const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "./output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./Classes/toFinalHTML.js");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 // 1. ASK FOR USER INPUT; SYNC METHOD
 
 const array = [];
+
 async function step1() {
     const input = await inquirer.prompt([
         {
@@ -45,10 +46,10 @@ async function step1() {
             type: 'list',
             message: 'Done. Now, please choose your options.',
             name: 'options',
-            choices: ['Add a Manager.','Add an Engineer.', 'Add an Intern.', 'Finish.'],
+            choices: ['Add a Manager.', 'Add an Engineer.', 'Add an Intern.', 'Finish.'],
         },
     ]);
-    array.push( new manager.Manager (input.name, input.id, input.email, input.officeNumber ));
+    array.push(new manager.Manager(input.name, input.id, input.email, input.officeNumber));
     switch (input.options) {
         case 'Add a Manager.':
             console.log('[Adding a Manager...]');
@@ -64,9 +65,12 @@ async function step1() {
             break;
         default:
             console.log('[You are done! You have created a team profile.]', array);
+            const finishedHTML = render(array);
+            fs.writeFileSync(outputPath, finishedHTML);
             break;
     }
 }
+
 async function step2() {
     const input = await inquirer.prompt([
         {
@@ -89,7 +93,7 @@ async function step2() {
         },
         {
             type: 'input',
-            message: 'What is the Engineer\'s GitHub URL?',
+            message: 'What is the Engineer\'s GitHub URL? Please include the Protocol.',
             name: 'github',
             validate: (value) => { if (value) { return true } else { return 'You need to give a URL to continue.' } },
         },
@@ -97,10 +101,10 @@ async function step2() {
             type: 'list',
             message: 'Done. Now, please choose your options.',
             name: 'options',
-            choices: ['Add a Manager.','Add an Engineer.', 'Add an Intern.', 'Finish.'],
+            choices: ['Add a Manager.', 'Add an Engineer.', 'Add an Intern.', 'Finish.'],
         },
     ]);
-    array.push( new engineer.Engineer (input.name, input.id, input.email, input.github ));
+    array.push(new engineer.Engineer(input.name, input.id, input.email, input.github));
     switch (input.options) {
         case 'Add a Manager.':
             console.log('[Adding a Manager...]');
@@ -116,6 +120,8 @@ async function step2() {
             break;
         default:
             console.log('[Finished! You have created a team profile.]', array);
+            const finishedHTML = render(array);
+            fs.writeFileSync(outputPath, finishedHTML);
             break;
     }
 }
@@ -150,10 +156,10 @@ async function step3() {
             type: 'list',
             message: 'Done. Now, please choose your options.',
             name: 'options',
-            choices: ['Add a Manager.','Add an Engineer.', 'Add an Intern.', 'Finish.'],
+            choices: ['Add a Manager.', 'Add an Engineer.', 'Add an Intern.', 'Finish.'],
         },
     ]);
-    array.push( new intern.Intern (input.name, input.id, input.email, input.school ));
+    array.push(new intern.Intern(input.name, input.id, input.email, input.school));
     switch (input.options) {
         case 'Add a Manager.':
             console.log('[Adding a Manager...]');
@@ -169,22 +175,26 @@ async function step3() {
             break;
         default:
             console.log('[You are done! You have created a team profile.]', array);
+            const finishedHTML = render(array);
+            fs.writeFileSync(outputPath, finishedHTML);
             break;
     }
 }
-step1();
 
+step1();
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
-
+// const finishedHTML = render.render( array );
+// fs.writeFileSync(outputPath, finishedHTML);
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
 // `output` folder. You can use the variable `outputPath` above target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
+
 
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
