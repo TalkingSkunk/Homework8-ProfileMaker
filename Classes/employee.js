@@ -7,7 +7,7 @@ class Employee {
     getName() { };
     getId() { };
     getEmail() { };
-    getRole() { };
+    getRole() { return this.constructor.name; };
 }
 
 module.exports = { Employee };

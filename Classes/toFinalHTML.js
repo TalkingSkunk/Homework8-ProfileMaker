@@ -1,11 +1,14 @@
 const path = require("path");
 const fs = require("fs");
 
-const templatesDir = path.resolve(__dirname, "../templates");
+// directory to htmlTemplates
+const templatesDir = path.resolve(__dirname, "../htmlTemplates");
+
 
 const render = employees => {
-  const html = [];
+  const html = []; //empty array
 
+  // filter Managers and 
   html.push(...employees
     .filter(employee => employee.getRole() === "Manager")
     .map(manager => renderManager(manager))
@@ -22,7 +25,7 @@ const render = employees => {
   return renderMain(html.join(""));
 
 };
-
+// change all the placeholders inside html templates
 const renderManager = manager => {
   let template = fs.readFileSync(path.resolve(templatesDir, "manager.html"), "utf8");
   template = replacePlaceholders(template, "name", manager.getName());
@@ -53,6 +56,7 @@ const renderIntern = intern => {
   return template;
 };
 
+// insert the finished cards into the final.html
 const renderMain = html => {
   const template = fs.readFileSync(path.resolve(templatesDir, "main.html"), "utf8");
   return replacePlaceholders(template, "team", html);
