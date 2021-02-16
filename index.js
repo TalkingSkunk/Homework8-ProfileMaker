@@ -64,7 +64,7 @@ async function step1() {
             step3();
             break;
         default:
-            console.log('[You are done! You have created a team profile.]', array);
+            console.log(array, '[You are done! You have created a team profile. Please check out the output folder.]');
             const finishedHTML = render(array);
             fs.writeFileSync(outputPath, finishedHTML);
             break;
@@ -119,7 +119,7 @@ async function step2() {
             step3();
             break;
         default:
-            console.log('[Finished! You have created a team profile.]', array);
+            console.log(array, '[You are done! You have created a team profile. Please check out the output folder.]');
             const finishedHTML = render(array);
             fs.writeFileSync(outputPath, finishedHTML);
             break;
@@ -174,7 +174,7 @@ async function step3() {
             step3();
             break;
         default:
-            console.log('[You are done! You have created a team profile.]', array);
+            console.log(array, '[You are done! You have created a team profile. Please check out the output folder.]');
             const finishedHTML = render(array);
             fs.writeFileSync(outputPath, finishedHTML);
             break;
