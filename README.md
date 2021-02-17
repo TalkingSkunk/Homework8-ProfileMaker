@@ -84,12 +84,12 @@ SOFTWARE.
 
 ## Installation
 
-* You need to install nodejs to your local computer.
-* You need to create package.json and node_modules by entering:
+1. You need to install nodejs from "nodejs.org" to your local computer.
+2. You need to create package.json and node_modules by entering:
     1. ``` npm init -y ```
     2. ``` npm install inquirer ```
     3. ``` npm install path ```
-* Run ``` node index.js ``` on your command line, and follow the prompts.
+3. Run ``` node index.js ``` on your command line, and follow the prompts.
 
 
 
@@ -122,7 +122,7 @@ SOFTWARE.
 ## Tests
 
 This is how to test the functionality of the 4 JS files inside the 'Classes' folder.
-1. Inside ``` package.json ``` file, modify the section as such:
+1. After following Step 2 of Installation above: inside the ``` package.json ``` file, modify the section as such:
 ```
 {
   "scripts": {
