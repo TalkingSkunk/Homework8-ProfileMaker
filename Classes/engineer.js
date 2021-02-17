@@ -1,6 +1,6 @@
-const employee = require("./employee.js");
+const Employee = require("./employee.js");
 
-class Engineer extends employee.Employee {
+class Engineer extends Employee {
     constructor(name, id, email, github) {
         super(name, id, email);
         this.github = github;
@@ -8,4 +8,4 @@ class Engineer extends employee.Employee {
     getGithub() { return this.github };
 }
 
-module.exports = { Engineer };
+module.exports = Engineer;

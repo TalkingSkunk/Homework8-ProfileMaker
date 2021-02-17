@@ -10,4 +10,4 @@ class Employee {
     getRole() { return this.constructor.name };
 }
 
-module.exports = { Employee };
+module.exports = Employee;

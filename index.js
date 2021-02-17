@@ -1,6 +1,6 @@
-const manager = require("./Classes/manager.js");
-const engineer = require("./Classes/engineer.js");
-const intern = require("./Classes/intern.js");
+const Manager = require("./Classes/manager.js");
+const Engineer = require("./Classes/engineer.js");
+const Intern = require("./Classes/intern.js");
 const render = require("./Classes/toFinalHTML.js");
 const inquirer = require("inquirer");
 const path = require("path");
@@ -49,7 +49,7 @@ async function step1() {
             choices: ['Add a Manager.', 'Add an Engineer.', 'Add an Intern.', 'Finish.'],
         },
     ]);
-    array.push(new manager.Manager(input.name, input.id, input.email, input.officeNumber));
+    array.push(new Manager(input.name, input.id, input.email, input.officeNumber));
     switch (input.options) {
         case 'Add a Manager.':
             console.log('[Adding a Manager...]');
@@ -104,7 +104,7 @@ async function step2() {
             choices: ['Add a Manager.', 'Add an Engineer.', 'Add an Intern.', 'Finish.'],
         },
     ]);
-    array.push(new engineer.Engineer(input.name, input.id, input.email, input.github));
+    array.push(new Engineer(input.name, input.id, input.email, input.github));
     switch (input.options) {
         case 'Add a Manager.':
             console.log('[Adding a Manager...]');
@@ -159,7 +159,7 @@ async function step3() {
             choices: ['Add a Manager.', 'Add an Engineer.', 'Add an Intern.', 'Finish.'],
         },
     ]);
-    array.push(new intern.Intern(input.name, input.id, input.email, input.school));
+    array.push(new Intern(input.name, input.id, input.email, input.school));
     switch (input.options) {
         case 'Add a Manager.':
             console.log('[Adding a Manager...]');
