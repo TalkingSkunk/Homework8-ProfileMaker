@@ -102,6 +102,7 @@ SOFTWARE.
         - Then the application will create a new html file with your inputs inside ``` output ``` folder.
 
 ![Screenshot of working website](./hw8.png)
+![Screenshot of working website2](./hw8b.png)
 
 
 
