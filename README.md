@@ -121,7 +121,17 @@ SOFTWARE.
 
 ## Tests
 
-N/A
+This is how to test the functionality of the 4 JS files inside the 'Classes' folder.
+1. Inside ``` package.json ``` file, modify the section as such:
+```
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+```
+2. Go to your command line, and make sure you are in the immediate folder path. Then in your command line, enter in  ``` npm install --save-dev jest ```.
+3. Finally, enter in ``` npm run test ```, and run the test.
 
 
 
